@@ -1,4 +1,6 @@
 function About() {
+  const happyCustomersImg = `${import.meta.env.BASE_URL}happy.png`;
+
   return (
     <div className="prose max-w-2xl mx-auto p-6 w-full">
       <h1>About Our E-commerce Platform</h1>
@@ -61,7 +63,7 @@ function About() {
       </p>
 
       <h3>Our Happy Customers</h3>
-      <img src="happy.png" alt="Happy customers" />
+      <img src={happyCustomersImg} alt="Happy customers" />
       <p>
         Join thousands of happy customers who trust us with their shopping
         needs.

@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import NavLinksMenu from "../UI/NavLinksMenu";
 
 function Header() {
+  const logoSrc = `${import.meta.env.BASE_URL}logo.svg`;
+
   return (
     <header className="bg-gradient-to-b from-sky-400/50 to-blue-700/50 py-8 px-4 xs:px-5 flex justify-between items-center shadow-md">
       <Link to={"/"}>
-        <img className="h-7" src="/logo.svg" alt="logo" />
+        <img className="h-7" src={logoSrc} alt="logo" />
       </Link>
       <nav>
         <ul className="flex items-center gap-4 xs:gap-8">
