@@ -3,10 +3,15 @@
 
 @theme {
     --breakpoint-xs: 480px;
+    --font-sans: "Roboto", sans-serif;
 }
 
 @layer {
     .anim {
         @apply transition duration-300 ease-linear;
     }
-}   
+
+    body {
+        font-family: var(--font-sans);
+    }
+}

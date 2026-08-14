@@ -9,6 +9,12 @@ export function Provider({ children }) {
     return likedItems ? likedItems : new Set();
   });
 
+  const [cart, setCart] = useState(() => {
+    const saveData = localStorage.getItem("cart");
+
+    return saveData ? JSON.parse(saveData) : {};
+  });
+
   function toggleLike(productId) {
     setLike((prev) => {
       const current = new Set(prev);
@@ -23,14 +29,59 @@ export function Provider({ children }) {
     });
   }
 
+  function addToCart(productId) {
+    setCart((prev) => ({
+      ...prev,
+      [productId]: (prev[productId] || 0) + 1,
+    }));
+  }
+
+  function changeQuantity(productId, quantity) {
+    setCart((prev) => {
+      if (quantity <= 0) {
+        const next = { ...prev };
+        delete next[productId];
+        return next;
+      }
+
+      return { ...prev, [productId]: quantity };
+    });
+  }
+
+  function removeFromCart(productId) {
+    setCart((prev) => {
+      const next = { ...prev };
+      delete next[productId];
+      return next;
+    });
+  }
+
+  function clearCart() {
+    setCart({});
+  }
+
   useEffect(() => {
     const saveLike = JSON.stringify([...like]);
 
     localStorage.setItem("idLikes", saveLike);
   }, [like]);
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
-    <MyContext.Provider value={{ toggleLike, like }}>
+    <MyContext.Provider
+      value={{
+        toggleLike,
+        like,
+        cart,
+        addToCart,
+        changeQuantity,
+        removeFromCart,
+        clearCart,
+      }}
+    >
       {children}
     </MyContext.Provider>
   );

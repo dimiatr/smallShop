@@ -1,72 +1,72 @@
 function About() {
-  const happyCustomersImg = `${import.meta.env.BASE_URL}happy.png`;
+  const happyCustomersImg = `${import.meta.env.BASE_URL}счастливые покупатели.png`;
 
   return (
     <div className="prose max-w-2xl mx-auto p-6 w-full">
-      <h1>About Our E-commerce Platform</h1>
-      <h2>Our Vision</h2>
-      <h3>How We Started</h3>
-      <h4>Key Milestones</h4>
-      <h5>Smaller Heading Example</h5>
-      <h6>Even Smaller Heading Example</h6>
+      <h1>О нашей интернет-площадке</h1>
+      <h2>Наша миссия</h2>
+      <h3>С чего мы начинали</h3>
+      <h4>Ключевые вехи</h4>
+      <h5>Пример заголовка поменьше</h5>
+      <h6>Пример заголовка ещё меньше</h6>
 
       <p>
-        Welcome to our e-commerce platform! We are dedicated to providing the
-        best online shopping experience. With a wide range of products,
-        competitive pricing, and exceptional customer service, we strive to make
-        your shopping journey as seamless as possible.
+        Добро пожаловать в наш интернет-магазин! Мы стремимся дать вам лучший
+        опыт онлайн-покупок. Широкий ассортимент товаров, конкурентные цены и
+        отличная поддержка клиентов — всё это, чтобы ваш путь за покупками был
+        максимально простым и приятным.
       </p>
       <p>
-        Our mission is to connect customers with products they love, from
-        trusted sellers around the world. Whether you are looking for the
-        latest gadgets, fashion, or home essentials, we have you covered.
+        Наша цель — соединять покупателей с товарами, которые они полюбят, от
+        проверенных продавцов со всего мира. Ищете ли вы новейшие гаджеты,
+        одежду или товары для дома — у нас найдётся всё необходимое.
       </p>
 
-      <h2>Why Choose Us?</h2>
+      <h2>Почему выбирают нас?</h2>
       <ul>
-        <li>Wide variety of products</li>
-        <li>Competitive prices</li>
-        <li>Fast and reliable shipping</li>
-        <li>Excellent customer support</li>
+        <li>Широкий ассортимент товаров</li>
+        <li>Конкурентные цены</li>
+        <li>Быстрая и надёжная доставка</li>
+        <li>Отличная поддержка клиентов</li>
       </ul>
 
-      <h3>Our Key Features:</h3>
+      <h3>Наши ключевые преимущества:</h3>
       <ol>
-        <li>User-friendly interface</li>
-        <li>Secure payment options</li>
-        <li>Real-time order tracking</li>
+        <li>Удобный интерфейс</li>
+        <li>Безопасные способы оплаты</li>
+        <li>Отслеживание заказа в реальном времени</li>
       </ol>
 
       <blockquote>
-        &quot;E-commerce is not the cherry on the cake, it is the new cake.&quot;
-        {" "} - Jean-Paul Ago
+        &quot;Электронная коммерция — это не вишенка на торте, это новый
+        торт.&quot;{" "}- Жан-Поль Аго
       </blockquote>
-      <h3>Example Code Block</h3>
+      <h3>Пример блока кода</h3>
       <pre>
         <code>
           {`function Shop() {
   return (
     <div>
-      <h1>Welcome to the Shop</h1>
-      <p>Find your favorite products here.</p>
+      <h1>Добро пожаловать в магазин</h1>
+      <p>Найдите здесь свои любимые товары.</p>
     </div>
   );
 }`}
         </code>
       </pre>
 
-      <h3>Learn More</h3>
+      <h3>Узнать больше</h3>
       <p>
-        Check out our{" "}
-        <a href="https://www.example.com">official website</a> for more
-        information about our services.
+        Загляните на наш{" "}
+        <a href="https://www.example.com">официальный сайт</a>, чтобы узнать
+        больше о наших услугах.
       </p>
 
-      <h3>Our Happy Customers</h3>
-      <img src={happyCustomersImg} alt="Happy customers" />
+      <h3>Наши довольные покупатели</h3>
+      <img src={happyCustomersImg} alt="Довольные покупатели" />
       <p>
-        Join thousands of happy customers who trust us with their shopping
-        needs.
+        Присоединяйтесь к тысячам довольных покупателей, которые доверяют нам
+        свои покупки.
       </p>
     </div>
   );

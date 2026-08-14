@@ -12,7 +12,7 @@ function Thanks() {
     return () => clearTimeout(timer);
   }, [navigate]);
 
-  return <div>You will be redirected to the home page in 5 seconds...</div>;
+  return <div>Вы будете перенаправлены на главную через 5 секунд...</div>;
 }
 
 export default Thanks;

@@ -1,6 +1,6 @@
 function NotFound() {
   return <div>
-    Page Not Found
+    Страница не найдена
     </div>;
 }
 

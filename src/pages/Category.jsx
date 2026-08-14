@@ -1,11 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
-import { products } from "../data/data";
+import { categories, formatPrice, products } from "../data/data";
 import Input from "../UI/Input";
 import Label from "../UI/Label";
 
 function Category() {
   const { categoryId } = useParams();
+  const categoryName =
+    categories.find((c) => c.id === categoryId)?.name ?? categoryId;
   const [inpValue, setInpValue] = useState("");
   const [filterPriceProducts, setFilterPriceProducts] = useState(null);
   const [showClear, setShowClear] = useState(false);
@@ -40,7 +42,7 @@ function Category() {
     <div className="max-w-7xl mx-auto w-full">
       <div className="mb-4 flex items-center gap-1">
         <Link to={"/"} className="underline underline-offset-3">
-          Category
+          Категории
         </Link>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -56,14 +58,14 @@ function Category() {
             d="m8.25 4.5 7.5 7.5-7.5 7.5"
           />
         </svg>
-        {categoryId}
+        {categoryName}
       </div>
       <div className="my-8 flex items-center gap-2">
-        <Label htmlFor="maxPrice">Max Price</Label>
+        <Label htmlFor="maxPrice">Макс. цена</Label>
         <div className="relative flex-1 sm:flex-none">
           <Input
             id={"maxPrice"}
-            placeholder={"Enter max price"}
+            placeholder={"Введите макс. цену"}
             value={inpValue}
             handleChange={handleChange}
             w="w-full sm:w-44 pr-7"
@@ -89,26 +91,31 @@ function Category() {
           className="rounded bg-blue-400 px-3 py-1 text-white"
           onClick={sortedPrice}
         >
-          Search
+          Найти
         </button>
       </div>
       <ul className="grid grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3">
         {listRender.map((product) => (
           <li
-            className="overflow-hidden rounded-md border border-gray-600"
+            className="anim group overflow-hidden rounded-xl border border-gray-200 shadow-sm hover:shadow-lg"
             key={product.name}
           >
             <Link
               to={`/product/${product.id}`}
-              className="relative group block"
+              className="relative block aspect-[4/5] overflow-hidden"
             >
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-violet-400 via-transparent to-green-500 anim group-hover:bg-gray-900/40">
-                <div className="block text-center text-3xl font-bold leading-relaxed text-white anim group-hover:scale-125">
-                  {product.name} <br />
-                  {product.price}$
-                </div>
+              <img
+                src={product.img}
+                alt={product.name}
+                className="anim size-full object-cover group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent"></div>
+              <div className="absolute inset-x-0 bottom-0 px-3 pb-3 text-center">
+                <p className="text-lg font-bold text-white">{product.name}</p>
+                <p className="text-base font-semibold text-white/90">
+                  {formatPrice(product.price)}
+                </p>
               </div>
-              <img src={product.img} alt={product.name} />
             </Link>
           </li>
         ))}
